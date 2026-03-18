@@ -116,6 +116,35 @@ a{
   color: var(--muted);
 }
 
+.resume-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  background: #ffffff;
+  color: #111111;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
 .site-footer{
   border-top: 1px solid var(--border);
   background: rgba(11, 18, 32, 0.5);
