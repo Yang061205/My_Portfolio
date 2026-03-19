@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>My portfolio</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="Primary">
-        <a class="brand" href="./index.html">My Portfolio</a>
+        <a class="brand" href="./index.html">My portfolio</a>
         <ul class="nav-links">
-          <li><a href="./portfolio.html">Portfolio</a></li>
+          <li><a class="is-active" href="./index.html">Portfolio</a></li>
           <li><a href="./about.html">About Me</a></li>
           <li><a href="./resume.html">Resume</a></li>
         </ul>
@@ -19,13 +19,20 @@
     </header>
 
     <main class="container">
-      <section class="hero">
-        <h1>Hello</h1>
+      <section class="hero" aria-label="Portfolio video">
+        <h1>My portfolio</h1>
+        <p class="muted">A quick highlight reel of my work.</p>
+        <div class="media">
+          <video class="media-video" controls preload="metadata">
+            <source src="./assets/portfolio.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </section>
     </main>
   
     <footer class="site-footer">
-      <small>© <span id="year">2026</span> Your Name</small>
+      <small>© <span id="year">2026</span> YULIO YANG</small>
     </footer>
   </body>
   </html>
