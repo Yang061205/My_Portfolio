@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Service Website (WordPress)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="detail-page">
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="./index.html">My portfolio</a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+        <ul class="nav-links">
+          <li><a class="is-active" href="./index.html">Portfolio</a></li>
+          <li><a href="./about.html">About Me</a></li>
+          <li><a href="./resume.html">Resume</a></li>
+        </ul>
+      </nav>
+      <div id="mobile-nav" class="nav-mobile" hidden>
+        <a class="nav-mobile-link is-active" href="./index.html">Portfolio</a>
+        <a class="nav-mobile-link" href="./about.html">About Me</a>
+        <a class="nav-mobile-link" href="./resume.html">Resume</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="detail-hero" aria-label="Project details">
+        <h1>Modern service website (WordPress)</h1>
+        <p class="muted detail-sub">
+          Created using <strong>WordPress</strong> and <strong>Elementor</strong>.
+          This video showcases a modern service website design focused on clean UI/UX, structured layout,
+          and user-friendly navigation.
+        </p>
+
+        <div class="detail-video">
+          <div class="embed-wrap media" aria-label="YouTube video">
+            <iframe
+              title="Modern service website (WordPress) — showcase"
+              src="https://www.youtube.com/embed/Iy7rHzOkc2o?autoplay=1&loop=1&playlist=Iy7rHzOkc2o&rel=0&modestbranding=1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="detail-content">
+          <div class="detail-block">
+            <h2>Overview</h2>
+            <p class="muted">
+              The goal of this design is to create a professional online presence while keeping the user experience
+              simple and effective for potential clients.
+            </p>
+          </div>
+
+          <div class="detail-block">
+            <h2>Key sections included</h2>
+            <ul class="detail-list">
+              <li><strong>Service presentation layout</strong></li>
+              <li><strong>About company section</strong></li>
+              <li><strong>Enquiry / contact form</strong></li>
+              <li><strong>Responsive and clean design structure</strong></li>
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <h2>What this project highlights</h2>
+            <p class="muted">
+              This project highlights how thoughtful layout and UI/UX decisions can improve clarity, engagement,
+              and lead generation.
+            </p>
+          </div>
+
+          <div class="detail-block">
+            <h2>Tools used</h2>
+            <div class="details-tags" aria-label="Tools">
+              <span class="tag">WordPress</span>
+              <span class="tag">Elementor</span>
+              <span class="tag">UI/UX</span>
+              <span class="tag">Responsive layout</span>
+            </div>
+            <p class="muted hashes">
+              #UIUX #WebDesign #WebsiteShowcase #Elementor #WordPress #UILayout
+            </p>
+          </div>
+
+          <div class="detail-block">
+            <h2>Feedback</h2>
+            <p class="muted">Feel free to share your thoughts or feedback in the comments.</p>
+            <div class="work-actions">
+              <a class="btn btn-outline work-btn" href="./index.html">Back to portfolio</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© <span id="year">2026</span> YULIO YANG</small>
+    </footer>
+
+    <script>
+      (function () {
+        var navBtn = document.querySelector(".nav-toggle");
+        var navPanel = document.getElementById("mobile-nav");
+        if (!navBtn || !navPanel) return;
+
+        navBtn.addEventListener("click", function () {
+          var willOpen = navPanel.hasAttribute("hidden");
+          if (willOpen) {
+            navPanel.removeAttribute("hidden");
+            navBtn.setAttribute("aria-expanded", "true");
+            navBtn.setAttribute("aria-label", "Close menu");
+          } else {
+            navPanel.setAttribute("hidden", "");
+            navBtn.setAttribute("aria-expanded", "false");
+            navBtn.setAttribute("aria-label", "Open menu");
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
