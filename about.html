@@ -10,12 +10,20 @@
     <header class="site-header">
       <nav class="nav" aria-label="Primary">
         <a class="brand" href="./index.html">My portfolio</a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
         <ul class="nav-links">
           <li><a href="./index.html">Portfolio</a></li>
           <li><a class="is-active" href="./about.html">About Me</a></li>
           <li><a href="./resume.html">Resume</a></li>
         </ul>
       </nav>
+      <div id="mobile-nav" class="nav-mobile" hidden>
+        <a class="nav-mobile-link" href="./index.html">Portfolio</a>
+        <a class="nav-mobile-link is-active" href="./about.html">About Me</a>
+        <a class="nav-mobile-link" href="./resume.html">Resume</a>
+      </div>
     </header>
 
     <main class="container">
@@ -223,5 +231,28 @@
     <footer class="site-footer">
       <small>© <span id="year">2026</span> YULIO YANG</small>
     </footer>
+
+    <script>
+      (function () {
+        var navBtn = document.querySelector(".nav-toggle");
+        var navPanel = document.getElementById("mobile-nav");
+        if (!navBtn || !navPanel) return;
+
+        navBtn.addEventListener("click", function () {
+          var willOpen = navPanel.hasAttribute("hidden");
+          if (willOpen) {
+            navPanel.removeAttribute("hidden");
+            navBtn.setAttribute("aria-expanded", "true");
+            navBtn.setAttribute("aria-label", "Close menu");
+            document.documentElement.classList.add("nav-open");
+          } else {
+            navPanel.setAttribute("hidden", "");
+            navBtn.setAttribute("aria-expanded", "false");
+            navBtn.setAttribute("aria-label", "Open menu");
+            document.documentElement.classList.remove("nav-open");
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

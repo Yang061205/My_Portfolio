@@ -10,12 +10,20 @@
     <header class="site-header">
       <nav class="nav" aria-label="Primary">
         <a class="brand" href="./index.html">My portfolio</a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
         <ul class="nav-links">
           <li><a class="is-active" href="./index.html">Portfolio</a></li>
           <li><a href="./about.html">About Me</a></li>
           <li><a href="./resume.html">Resume</a></li>
         </ul>
       </nav>
+      <div id="mobile-nav" class="nav-mobile" hidden>
+        <a class="nav-mobile-link is-active" href="./index.html">Portfolio</a>
+        <a class="nav-mobile-link" href="./about.html">About Me</a>
+        <a class="nav-mobile-link" href="./resume.html">Resume</a>
+      </div>
     </header>
 
     <main class="container">
@@ -29,40 +37,137 @@
           </p>
         </header>
 
-        <article class="portfolio-item">
-          <h2 class="portfolio-item-title">Local business website template</h2>
-          <p class="muted portfolio-item-desc">
-            Screen recording overview: a multi-section layout for promoting services, introducing the company, and
-            collecting enquiries. Use the button to expand the player in place (same page)—it will start and loop
-            automatically.
-          </p>
+        <section class="portfolio-gallery" aria-label="Featured projects">
+          <header class="gallery-head">
+            <h2 class="gallery-title">Featured</h2>
+            <p class="muted">Click “View details” to expand a full description and playable demo.</p>
+          </header>
 
-          <button
-            type="button"
-            class="btn btn-outline btn-expand"
-            id="toggle-portfolio-video"
-            aria-expanded="false"
-            aria-controls="portfolio-video-panel"
-          >
-            Watch project video
-          </button>
+          <div class="gallery-grid">
+            <article class="work-card" data-work>
+              <div class="work-preview media" aria-label="Project preview">
+                <img
+                  class="work-thumb"
+                  src="https://img.youtube.com/vi/Iy7rHzOkc2o/hqdefault.jpg"
+                  alt="Preview image for local business website template demo"
+                  loading="lazy"
+                />
+                <div class="work-preview-overlay" aria-hidden="true">
+                  <span class="work-preview-chip">Website template demo</span>
+                </div>
+              </div>
 
-          <div id="portfolio-video-panel" class="video-expand-panel" hidden>
-            <div class="embed-wrap media" aria-label="YouTube video">
-              <iframe
-                id="yt-embed"
-                title="Local business website template — demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                loading="lazy"
-              ></iframe>
-            </div>
-            <p class="muted video-caption">
-              This demo walks through a template tailored for a local business: clear service highlights, an
-              about-the-company section, and an enquiry form so visitors can reach out or request more information.
-            </p>
+              <div class="work-body">
+                <h3 class="work-title">Local business website template</h3>
+                <p class="muted work-desc">
+                  A clean, multi-section template to promote services, introduce the company, and collect enquiries.
+                </p>
+
+                <div class="work-actions">
+                  <button
+                    type="button"
+                    class="btn btn-outline work-btn"
+                    data-action="toggle-details"
+                    aria-expanded="false"
+                    aria-controls="work-details-1"
+                  >
+                    View details
+                  </button>
+                </div>
+
+                <div id="work-details-1" class="work-details" hidden>
+                  <div class="details-grid">
+                    <div>
+                      <h4 class="details-title">Background</h4>
+                      <p class="muted details-text">
+                        This demo walks through a template tailored for a local business: clear service highlights,
+                        an about-the-company section, and an enquiry form so visitors can reach out or request a quote.
+                      </p>
+
+                      <div class="details-tags" aria-label="Highlights">
+                        <span class="tag">Services sections</span>
+                        <span class="tag">Company intro</span>
+                        <span class="tag">Enquiry form</span>
+                      </div>
+                    </div>
+
+                    <div class="details-media">
+                      <div class="embed-wrap media" aria-label="YouTube video">
+                        <iframe
+                          data-yt
+                          title="Local business website template — demo"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen
+                          loading="lazy"
+                        ></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card" data-work>
+              <div class="work-preview media" aria-label="Video preview">
+                <video class="work-thumb-video" muted loop playsinline preload="metadata">
+                  <source src="./assets/portfolio.mp4" type="video/mp4" />
+                </video>
+                <div class="work-preview-overlay" aria-hidden="true">
+                  <span class="work-preview-chip">Music (hobby)</span>
+                </div>
+              </div>
+
+              <div class="work-body">
+                <h3 class="work-title">Cocu music composition (hobby)</h3>
+                <p class="muted work-desc">
+                  A short composition I created for fun—sharing it as a small creative showcase alongside my dev work.
+                </p>
+
+                <div class="work-actions">
+                  <button
+                    type="button"
+                    class="btn btn-outline work-btn"
+                    data-action="toggle-details"
+                    aria-expanded="false"
+                    aria-controls="work-details-2"
+                  >
+                    View details
+                  </button>
+                </div>
+
+                <div id="work-details-2" class="work-details" hidden>
+                  <div class="details-grid">
+                    <div>
+                      <h4 class="details-title">About this piece</h4>
+                      <p class="muted details-text">
+                        This is a Cocu music composition I made as a hobby. It’s here to show I also have creative
+                        skills and interest in composition/arrangement.
+                      </p>
+
+                      <div class="details-tags" aria-label="Highlights">
+                        <span class="tag">Composition</span>
+                        <span class="tag">Arrangement</span>
+                        <span class="tag">Creative hobby</span>
+                      </div>
+                    </div>
+
+                    <div class="details-media">
+                      <div class="media" aria-label="Music composition video">
+                        <video class="media-video" controls loop playsinline preload="metadata" data-local>
+                          <source src="./assets/portfolio.mp4" type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      <p class="muted video-caption">
+                        Tip: if autoplay is blocked, just press play once—then it will loop.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
-        </article>
+        </section>
       </section>
     </main>
 
@@ -72,29 +177,85 @@
 
     <script>
       (function () {
-        var btn = document.getElementById("toggle-portfolio-video");
-        var panel = document.getElementById("portfolio-video-panel");
-        var iframe = document.getElementById("yt-embed");
-        var ytBase = "https://www.youtube.com/embed/Iy7rHzOkc2o";
-        var params =
-          "autoplay=1&loop=1&playlist=Iy7rHzOkc2o&rel=0&modestbranding=1";
-        if (!btn || !panel || !iframe) return;
-
-        btn.addEventListener("click", function () {
-          var willOpen = panel.hasAttribute("hidden");
-          if (willOpen) {
-            panel.removeAttribute("hidden");
-            btn.setAttribute("aria-expanded", "true");
-            if (!iframe.getAttribute("src")) {
-              iframe.src = ytBase + "?" + params;
+        // Mobile nav
+        var navBtn = document.querySelector(".nav-toggle");
+        var navPanel = document.getElementById("mobile-nav");
+        if (navBtn && navPanel) {
+          navBtn.addEventListener("click", function () {
+            var willOpen = navPanel.hasAttribute("hidden");
+            if (willOpen) {
+              navPanel.removeAttribute("hidden");
+              navBtn.setAttribute("aria-expanded", "true");
+              navBtn.setAttribute("aria-label", "Close menu");
+              document.documentElement.classList.add("nav-open");
+            } else {
+              navPanel.setAttribute("hidden", "");
+              navBtn.setAttribute("aria-expanded", "false");
+              navBtn.setAttribute("aria-label", "Open menu");
+              document.documentElement.classList.remove("nav-open");
             }
-            btn.textContent = "Hide project video";
-          } else {
-            panel.setAttribute("hidden", "");
-            btn.setAttribute("aria-expanded", "false");
-            iframe.src = "";
-            btn.textContent = "Watch project video";
-          }
+          });
+        }
+
+        // Autoplay muted preview videos (safe + lightweight)
+        document.querySelectorAll(".work-thumb-video").forEach(function (v) {
+          try { v.play(); } catch (e) {}
+        });
+
+        // Work card detail toggles (in-page expand)
+        var ytBase = "https://www.youtube.com/embed/Iy7rHzOkc2o";
+        var ytParams = "autoplay=1&loop=1&playlist=Iy7rHzOkc2o&rel=0&modestbranding=1";
+
+        function closeWorkDetails(root) {
+          root.querySelectorAll("[data-action='toggle-details']").forEach(function (b) {
+            b.setAttribute("aria-expanded", "false");
+            b.textContent = "View details";
+          });
+          root.querySelectorAll(".work-details").forEach(function (p) {
+            p.setAttribute("hidden", "");
+          });
+          root.querySelectorAll("[data-yt]").forEach(function (f) {
+            f.setAttribute("src", "");
+          });
+          root.querySelectorAll("[data-local]").forEach(function (v) {
+            try { v.pause(); v.currentTime = 0; } catch (e) {}
+          });
+        }
+
+        document.querySelectorAll("[data-work]").forEach(function (card) {
+          var btn = card.querySelector("[data-action='toggle-details']");
+          if (!btn) return;
+
+          btn.addEventListener("click", function () {
+            var panelId = btn.getAttribute("aria-controls");
+            var panel = panelId ? document.getElementById(panelId) : null;
+            if (!panel) return;
+
+            var willOpen = panel.hasAttribute("hidden");
+
+            // close all other cards first
+            document.querySelectorAll("[data-work]").forEach(function (other) {
+              if (other !== card) closeWorkDetails(other);
+            });
+
+            if (willOpen) {
+              panel.removeAttribute("hidden");
+              btn.setAttribute("aria-expanded", "true");
+              btn.textContent = "Hide details";
+
+              var yt = panel.querySelector("[data-yt]");
+              if (yt && !yt.getAttribute("src")) {
+                yt.setAttribute("src", ytBase + "?" + ytParams);
+              }
+
+              var local = panel.querySelector("[data-local]");
+              if (local) {
+                try { local.play(); } catch (e) {}
+              }
+            } else {
+              closeWorkDetails(card);
+            }
+          });
         });
       })();
     </script>
