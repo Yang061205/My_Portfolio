@@ -19,20 +19,84 @@
     </header>
 
     <main class="container">
-      <section class="hero" aria-label="Portfolio video">
-        <h1>My portfolio</h1>
-        <p class="muted">A quick highlight reel of my work.</p>
-        <div class="media">
-          <video class="media-video" controls preload="metadata">
-            <source src="./assets/portfolio.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+      <section class="hero" aria-label="Home">
+        <header class="site-intro">
+          <h1>My portfolio</h1>
+          <p class="muted site-intro-lead">
+            Here you can explore a featured project demo (video), read my background and coursework on
+            <a href="./about.html">About Me</a>, and open or download my CV on
+            <a href="./resume.html">Resume</a>. Nothing autoplays until you choose to open the video below.
+          </p>
+        </header>
+
+        <article class="portfolio-item">
+          <h2 class="portfolio-item-title">Local business website template</h2>
+          <p class="muted portfolio-item-desc">
+            Screen recording overview: a multi-section layout for promoting services, introducing the company, and
+            collecting enquiries. Use the button to expand the player in place (same page)—it will start and loop
+            automatically.
+          </p>
+
+          <button
+            type="button"
+            class="btn btn-outline btn-expand"
+            id="toggle-portfolio-video"
+            aria-expanded="false"
+            aria-controls="portfolio-video-panel"
+          >
+            Watch project video
+          </button>
+
+          <div id="portfolio-video-panel" class="video-expand-panel" hidden>
+            <div class="embed-wrap media" aria-label="YouTube video">
+              <iframe
+                id="yt-embed"
+                title="Local business website template — demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <p class="muted video-caption">
+              This demo walks through a template tailored for a local business: clear service highlights, an
+              about-the-company section, and an enquiry form so visitors can reach out or request more information.
+            </p>
+          </div>
+        </article>
       </section>
     </main>
-  
+
     <footer class="site-footer">
       <small>© <span id="year">2026</span> YULIO YANG</small>
     </footer>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("toggle-portfolio-video");
+        var panel = document.getElementById("portfolio-video-panel");
+        var iframe = document.getElementById("yt-embed");
+        var ytBase = "https://www.youtube.com/embed/Iy7rHzOkc2o";
+        var params =
+          "autoplay=1&loop=1&playlist=Iy7rHzOkc2o&rel=0&modestbranding=1";
+        if (!btn || !panel || !iframe) return;
+
+        btn.addEventListener("click", function () {
+          var willOpen = panel.hasAttribute("hidden");
+          if (willOpen) {
+            panel.removeAttribute("hidden");
+            btn.setAttribute("aria-expanded", "true");
+            if (!iframe.getAttribute("src")) {
+              iframe.src = ytBase + "?" + params;
+            }
+            btn.textContent = "Hide project video";
+          } else {
+            panel.setAttribute("hidden", "");
+            btn.setAttribute("aria-expanded", "false");
+            iframe.src = "";
+            btn.textContent = "Watch project video";
+          }
+        });
+      })();
+    </script>
   </body>
-  </html>
+</html>

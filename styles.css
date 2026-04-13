@@ -440,6 +440,103 @@ a{
   background: rgba(255, 255, 255, 0.06);
 }
 
+.portfolio-item{
+  margin-top: 1.5rem;
+}
+
+.portfolio-item-title{
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  font-weight: 750;
+  letter-spacing: 0.2px;
+}
+
+.portfolio-item-desc{
+  margin: 0 0 1rem;
+  max-width: 70ch;
+}
+
+.media{
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow);
+}
+
+.media-video{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.site-intro{
+  margin-bottom: 1.75rem;
+}
+
+.site-intro h1{
+  margin: 0 0 0.65rem;
+}
+
+.site-intro-lead{
+  margin: 0;
+  max-width: 72ch;
+  line-height: 1.55;
+}
+
+.site-intro-lead a{
+  color: rgba(167, 200, 255, 0.95);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-intro-lead a:hover,
+.site-intro-lead a:focus-visible{
+  color: #eaf0ff;
+  outline: none;
+}
+
+.video-expand-panel{
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.video-expand-panel[hidden]{
+  display: none !important;
+}
+
+.embed-wrap{
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.embed-wrap iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-caption{
+  margin: 0;
+  max-width: 72ch;
+  line-height: 1.5;
+}
+
+button.btn{
+  font: inherit;
+  cursor: pointer;
+}
+
+.btn-expand{
+  margin-top: 0.35rem;
+}
+
 .site-footer{
   border-top: 1px solid var(--border);
   background: rgba(11, 18, 32, 0.5);
