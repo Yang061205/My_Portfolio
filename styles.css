@@ -51,6 +51,12 @@ a{
   transform: translateY(-110%);
 }
 
+/* When the drawer is open, make header more solid */
+.nav-open .site-header{
+  background: rgba(11, 18, 32, 0.92);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
 .nav{
   width: min(1000px, calc(100% - 2rem));
   margin: 0 auto;
@@ -139,13 +145,20 @@ a{
 .nav-backdrop{
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
   display: none;
 }
 
 .nav-backdrop[hidden]{
   display: none !important;
+}
+
+/* Dim the page content behind the drawer */
+.nav-open main,
+.nav-open .site-footer{
+  opacity: 0.5;
+  transition: opacity 180ms ease;
 }
 
 .nav-mobile-link{
