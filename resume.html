@@ -24,6 +24,7 @@
         <a class="nav-mobile-link" href="./about.html">About Me</a>
         <a class="nav-mobile-link is-active" href="./resume.html">Resume</a>
       </div>
+      <div class="nav-backdrop" hidden aria-hidden="true"></div>
     </header>
 
     <main class="container">
@@ -49,23 +50,65 @@
 
     <script>
       (function () {
+        // Header offset for fixed header
+        var header = document.querySelector(".site-header");
+        function setHeaderOffset() {
+          if (!header) return;
+          document.documentElement.style.setProperty("--header-offset", header.offsetHeight + "px");
+        }
+        setHeaderOffset();
+        window.addEventListener("resize", setHeaderOffset);
+
+        // Smart sticky header
+        var lastY = window.scrollY || 0;
+        window.addEventListener(
+          "scroll",
+          function () {
+            if (!header) return;
+            var y = window.scrollY || 0;
+            var goingDown = y > lastY;
+            if (y < 80) {
+              header.classList.remove("is-hidden");
+            } else if (goingDown && y > 400) {
+              header.classList.add("is-hidden");
+            } else if (!goingDown) {
+              header.classList.remove("is-hidden");
+            }
+            lastY = y;
+          },
+          { passive: true }
+        );
+
+        // Mobile nav drawer
         var navBtn = document.querySelector(".nav-toggle");
         var navPanel = document.getElementById("mobile-nav");
-        if (!navBtn || !navPanel) return;
-
-        navBtn.addEventListener("click", function () {
-          var willOpen = navPanel.hasAttribute("hidden");
-          if (willOpen) {
-            navPanel.removeAttribute("hidden");
-            navBtn.setAttribute("aria-expanded", "true");
-            navBtn.setAttribute("aria-label", "Close menu");
-            document.documentElement.classList.add("nav-open");
-          } else {
-            navPanel.setAttribute("hidden", "");
-            navBtn.setAttribute("aria-expanded", "false");
-            navBtn.setAttribute("aria-label", "Open menu");
-            document.documentElement.classList.remove("nav-open");
-          }
+        var backdrop = document.querySelector(".nav-backdrop");
+        function closeNav() {
+          if (!navBtn || !navPanel) return;
+          navPanel.setAttribute("hidden", "");
+          if (backdrop) backdrop.setAttribute("hidden", "");
+          navBtn.setAttribute("aria-expanded", "false");
+          navBtn.setAttribute("aria-label", "Open menu");
+          document.documentElement.classList.remove("nav-open");
+        }
+        function openNav() {
+          if (!navBtn || !navPanel) return;
+          navPanel.removeAttribute("hidden");
+          if (backdrop) backdrop.removeAttribute("hidden");
+          navBtn.setAttribute("aria-expanded", "true");
+          navBtn.setAttribute("aria-label", "Close menu");
+          document.documentElement.classList.add("nav-open");
+        }
+        if (navBtn && navPanel) {
+          navBtn.addEventListener("click", function () {
+            var willOpen = navPanel.hasAttribute("hidden");
+            if (willOpen) openNav();
+            else closeNav();
+          });
+        }
+        if (backdrop) backdrop.addEventListener("click", closeNav);
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeNav();
         });
       })();
     </script>
