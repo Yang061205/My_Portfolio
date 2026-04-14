@@ -105,6 +105,11 @@ a{
   backdrop-filter: blur(10px);
 }
 
+/* Ensure [hidden] always wins over layout CSS (prevents mobile menu showing on load) */
+.nav-mobile[hidden]{
+  display: none !important;
+}
+
 .nav-mobile-link{
   display: flex;
   padding: 0.75rem 0.85rem;
@@ -929,7 +934,8 @@ button.btn{
     display: none;
   }
 
-  .nav-mobile{
+  /* Only show the drawer after the burger button removes `hidden` */
+  .nav-mobile:not([hidden]){
     display: grid;
   }
 

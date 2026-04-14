@@ -136,16 +136,41 @@
           try { v.play(); } catch (e) {}
         });
 
-        // Quick play button for the music preview card
+        // Play/stop toggle for the music preview card
         var playBtn = document.getElementById("open-music");
         var preview = document.querySelector(".work-thumb-video");
         if (playBtn && preview) {
           playBtn.addEventListener("click", function () {
-            try {
-              preview.muted = false;
-              preview.controls = true;
-              preview.play();
-            } catch (e) {}
+            var isPlaying = !preview.paused && !preview.ended;
+            if (!isPlaying) {
+              try {
+                preview.muted = false;
+                preview.controls = true;
+                preview.play();
+                playBtn.textContent = "Stop";
+                playBtn.setAttribute("aria-pressed", "true");
+              } catch (e) {}
+            } else {
+              try {
+                preview.pause();
+                preview.currentTime = 0;
+                preview.controls = false;
+                preview.muted = true;
+                playBtn.textContent = "Play";
+                playBtn.setAttribute("aria-pressed", "false");
+              } catch (e) {}
+            }
+          });
+
+          preview.addEventListener("pause", function () {
+            if (preview.currentTime === 0) return;
+            playBtn.textContent = "Play";
+            playBtn.setAttribute("aria-pressed", "false");
+          });
+
+          preview.addEventListener("ended", function () {
+            playBtn.textContent = "Play";
+            playBtn.setAttribute("aria-pressed", "false");
           });
         }
       })();
