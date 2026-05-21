@@ -1,10 +1,18 @@
 :root{
-  --bg: #0b1220;
-  --panel: rgba(255, 255, 255, 0.06);
-  --text: #eaf0ff;
-  --muted: rgba(234, 240, 255, 0.75);
-  --border: rgba(255, 255, 255, 0.12);
-  --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  --cream: #FBF5DD;
+  --sand: #E7E1B1;
+  --green: #306D29;
+  --green-dark: #0D530E;
+
+  --bg: var(--cream);
+  --panel: var(--sand);
+  --text: var(--green-dark);
+  --muted: rgba(13, 83, 14, 0.72);
+  --border: rgba(13, 83, 14, 0.18);
+  --accent: var(--green);
+  --shadow: 0 12px 30px rgba(13, 83, 14, 0.14);
+  --surface: rgba(231, 225, 177, 0.65);
+  --surface-strong: #E7E1B1;
 }
 
 *{ box-sizing: border-box; }
@@ -16,9 +24,9 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(800px 400px at 20% 10%, rgba(110, 168, 254, 0.25), transparent 60%),
-    radial-gradient(700px 350px at 80% 20%, rgba(167, 139, 250, 0.22), transparent 55%),
-    radial-gradient(900px 450px at 40% 90%, rgba(34, 197, 94, 0.12), transparent 60%),
+    radial-gradient(800px 400px at 20% 10%, rgba(48, 109, 41, 0.18), transparent 60%),
+    radial-gradient(700px 350px at 80% 20%, rgba(231, 225, 177, 0.55), transparent 55%),
+    radial-gradient(900px 450px at 40% 90%, rgba(13, 83, 14, 0.08), transparent 60%),
     var(--bg);
   padding-top: var(--header-offset, 76px);
 }
@@ -40,8 +48,8 @@ a{
   left: 0;
   right: 0;
   z-index: 10;
-  backdrop-filter: blur(10px);
-  background: rgba(11, 18, 32, 0.65);
+  backdrop-filter: blur(8px);
+  background: rgba(251, 245, 221, 0.88);
   border-bottom: 1px solid var(--border);
   transform: translateY(0);
   transition: transform 220ms ease;
@@ -53,9 +61,9 @@ a{
 
 /* When the drawer is open, make header more solid */
 .nav-open .site-header{
-  background: rgba(11, 18, 32, 0.98);
+  background: rgba(251, 245, 221, 0.98);
   backdrop-filter: none;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 14px 40px rgba(13, 83, 14, 0.18);
 }
 
 .nav{
@@ -73,8 +81,8 @@ a{
   width: 44px;
   height: 40px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  background: var(--surface);
   color: var(--text);
   padding: 0;
   position: relative;
@@ -84,21 +92,21 @@ a{
 
 .nav-toggle:hover,
 .nav-toggle:focus-visible{
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(13, 83, 14, 0.28);
+  background: rgba(231, 225, 177, 0.85);
   outline: none;
 }
 
 .nav-open .nav-toggle{
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(231, 225, 177, 0.95);
+  border-color: rgba(13, 83, 14, 0.28);
 }
 
 .nav-toggle-bars{
   display: inline-block;
   width: 18px;
   height: 2px;
-  background: rgba(234, 240, 255, 0.9);
+  background: var(--green-dark);
   border-radius: 999px;
   position: relative;
   transition: background 180ms ease, transform 180ms ease;
@@ -111,7 +119,7 @@ a{
   left: 0;
   width: 18px;
   height: 2px;
-  background: rgba(234, 240, 255, 0.9);
+  background: var(--green-dark);
   border-radius: 999px;
   transition: transform 180ms ease, top 180ms ease, opacity 180ms ease;
 }
@@ -138,7 +146,7 @@ a{
   width: min(1000px, calc(100% - 2rem));
   margin: 0 auto 0.75rem;
   border: 1px solid var(--border);
-  background: rgba(11, 18, 32, 0.75);
+  background: rgba(251, 245, 221, 0.96);
   border-radius: 16px;
   padding: 0.6rem;
   display: none;
@@ -154,7 +162,7 @@ a{
 .nav-backdrop{
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.68);
+  background: rgba(13, 83, 14, 0.45);
   backdrop-filter: none;
   display: none;
 }
@@ -181,15 +189,15 @@ a{
 .nav-mobile-link:hover,
 .nav-mobile-link:focus-visible{
   color: var(--text);
-  border-color: rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border);
+  background: var(--surface);
   outline: none;
 }
 
 .nav-mobile-link.is-active{
   color: var(--text);
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(48, 109, 41, 0.35);
+  background: rgba(48, 109, 41, 0.12);
 }
 
 .brand{
@@ -218,7 +226,7 @@ a{
 .nav-links a:focus-visible{
   color: var(--text);
   border-color: var(--border);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(48, 109, 41, 0.1);
   outline: none;
 }
 
@@ -240,7 +248,7 @@ a{
 .section{
   margin-top: 1.25rem;
   padding: 1.25rem 1.5rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
 }
@@ -268,8 +276,8 @@ a{
   padding: 12px 20px;
   border-radius: 10px;
   text-decoration: none;
-  background: #ffffff;
-  color: #111111;
+  background: var(--green-dark);
+  color: var(--cream);
   font-weight: 600;
   transition: 0.3s ease;
 }
@@ -281,8 +289,8 @@ a{
 
 .btn-outline {
   background: transparent;
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid var(--green-dark);
+  color: var(--green-dark);
 }
 
 /* About page layout */
@@ -312,7 +320,7 @@ a{
   padding: 0.45rem 0.7rem;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface);
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -327,7 +335,7 @@ a{
   padding: 1rem 1rem;
   border-radius: 14px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.035);
+  background: var(--surface);
 }
 
 .about-section h2{
@@ -351,7 +359,7 @@ a{
 .radar-card{
   border-radius: 16px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--surface);
   padding: 1rem 1rem;
 }
 
@@ -381,28 +389,28 @@ a{
 .radar-grid polygon,
 .radar-grid line{
   fill: none;
-  stroke: rgba(255, 255, 255, 0.14);
+  stroke: rgba(13, 83, 14, 0.2);
   stroke-width: 1;
 }
 
 .radar-area{
-  fill: rgba(110, 168, 254, 0.25);
-  stroke: rgba(110, 168, 254, 0.55);
+  fill: rgba(48, 109, 41, 0.22);
+  stroke: rgba(48, 109, 41, 0.55);
   stroke-width: 1.5;
 }
 
 .radar-line{
   fill: none;
-  stroke: rgba(167, 139, 250, 0.7);
+  stroke: rgba(13, 83, 14, 0.65);
   stroke-width: 1.5;
 }
 
 .radar-label{
   position: absolute;
   font-size: 0.78rem;
-  color: rgba(234, 240, 255, 0.9);
-  background: rgba(11, 18, 32, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  background: rgba(251, 245, 221, 0.92);
+  border: 1px solid var(--border);
   padding: 0.25rem 0.45rem;
   border-radius: 999px;
   backdrop-filter: blur(8px);
@@ -428,14 +436,14 @@ a{
   gap: 0.75rem;
   padding: 0.45rem 0.6rem;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  background: rgba(231, 225, 177, 0.5);
   color: var(--muted);
   font-size: 0.9rem;
 }
 
 .legend-k{
-  color: rgba(234, 240, 255, 0.9);
+  color: var(--text);
 }
 
 .legend-v{
@@ -463,8 +471,8 @@ a{
 
 .edu-card{
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  background: rgba(231, 225, 177, 0.5);
   box-shadow: var(--shadow);
   padding: 1rem 1rem;
 }
@@ -491,11 +499,11 @@ a{
   min-width: 140px;
   border-radius: 999px;
   padding: 0.6rem 0.85rem;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid var(--border);
   background:
-    radial-gradient(180px 90px at 30% 30%, rgba(110, 168, 254, 0.25), transparent 60%),
-    radial-gradient(180px 90px at 70% 70%, rgba(167, 139, 250, 0.20), transparent 60%),
-    rgba(255, 255, 255, 0.04);
+    radial-gradient(180px 90px at 30% 30%, rgba(48, 109, 41, 0.2), transparent 60%),
+    radial-gradient(180px 90px at 70% 70%, rgba(231, 225, 177, 0.65), transparent 60%),
+    var(--surface);
 }
 
 .edu-badge-k{
@@ -517,8 +525,8 @@ a{
 
 .course-group{
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  background: rgba(231, 225, 177, 0.4);
   padding: 0.8rem 0.85rem;
 }
 
@@ -547,8 +555,8 @@ a{
 
 .skill-col{
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  background: rgba(231, 225, 177, 0.4);
   padding: 0.85rem 0.85rem;
 }
 
@@ -568,16 +576,16 @@ a{
   align-items: center;
   padding: 0.35rem 0.55rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  background: var(--surface);
   color: var(--muted);
   font-size: 0.85rem;
 }
 
 .nav-links a.is-active{
   color: var(--text);
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(48, 109, 41, 0.35);
+  background: rgba(48, 109, 41, 0.12);
 }
 
 .portfolio-item{
@@ -600,7 +608,7 @@ a{
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid var(--border);
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(13, 83, 14, 0.1);
   box-shadow: var(--shadow);
 }
 
@@ -625,14 +633,14 @@ a{
 }
 
 .site-intro-lead a{
-  color: rgba(167, 200, 255, 0.95);
+  color: var(--green);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .site-intro-lead a:hover,
 .site-intro-lead a:focus-visible{
-  color: #eaf0ff;
+  color: var(--text);
   outline: none;
 }
 
@@ -704,8 +712,8 @@ button.btn{
 
 .work-card{
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  background: rgba(231, 225, 177, 0.5);
   overflow: hidden;
   box-shadow: var(--shadow);
 }
@@ -715,7 +723,7 @@ button.btn{
   border-radius: 0;
   border: 0;
   box-shadow: none;
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(13, 83, 14, 0.12);
 }
 
 .work-thumb,
@@ -729,7 +737,7 @@ button.btn{
 .work-preview-overlay{
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.0) 55%);
+  background: linear-gradient(to top, rgba(13, 83, 14, 0.45), rgba(13, 83, 14, 0) 55%);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -741,9 +749,9 @@ button.btn{
   display: inline-flex;
   padding: 0.35rem 0.55rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(11, 18, 32, 0.55);
-  color: rgba(234, 240, 255, 0.92);
+  border: 1px solid var(--border);
+  background: rgba(251, 245, 221, 0.92);
+  color: var(--text);
   font-size: 0.85rem;
   backdrop-filter: blur(8px);
 }
@@ -754,9 +762,9 @@ button.btn{
   gap: 0.5rem;
   padding: 0.35rem 0.55rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(11, 18, 32, 0.55);
-  color: rgba(234, 240, 255, 0.92);
+  border: 1px solid var(--border);
+  background: rgba(251, 245, 221, 0.92);
+  color: var(--text);
   font-size: 0.85rem;
   backdrop-filter: blur(8px);
 }
@@ -774,8 +782,8 @@ button.btn{
   gap: 0.45rem;
   padding: 0.45rem 0.7rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border);
+  background: var(--surface);
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -784,19 +792,19 @@ button.btn{
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: rgba(110, 168, 254, 0.85);
+  background: var(--green);
 }
 
-.category-dot.purple{ background: rgba(167, 139, 250, 0.85); }
-.category-dot.green{ background: rgba(34, 197, 94, 0.75); }
-.category-dot.orange{ background: rgba(251, 146, 60, 0.85); }
+.category-dot.purple{ background: var(--green-dark); }
+.category-dot.green{ background: var(--sand); }
+.category-dot.orange{ background: #8b5a2b; }
 
 .work-link{
   color: inherit;
 }
 
 .work-link:focus-visible{
-  outline: 2px solid rgba(110, 168, 254, 0.7);
+  outline: 2px solid rgba(48, 109, 41, 0.55);
   outline-offset: 3px;
   border-radius: 14px;
 }
@@ -847,8 +855,8 @@ button.btn{
   margin-top: 1rem;
   padding: 1.25rem 1.25rem;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  background: rgba(231, 225, 177, 0.5);
 }
 
 .detail-block h2{
@@ -866,7 +874,7 @@ button.btn{
 
 .hashes{
   margin-top: 0.75rem;
-  color: rgba(234, 240, 255, 0.85);
+  color: var(--muted);
   font-size: 0.95rem;
 }
 
@@ -901,7 +909,7 @@ button.btn{
 .work-details{
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-top: 1px solid var(--border);
 }
 
 .details-grid{
@@ -934,7 +942,7 @@ button.btn{
 
 .site-footer{
   border-top: 1px solid var(--border);
-  background: rgba(11, 18, 32, 0.5);
+  background: rgba(231, 225, 177, 0.55);
 }
 
 .site-footer small{
@@ -1007,8 +1015,8 @@ button.btn{
     gap: 0.25rem;
     transform: translateX(-110%);
     transition: transform 220ms ease;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.55);
-    background: rgba(11, 18, 32, 0.96);
+    box-shadow: 0 20px 50px rgba(13, 83, 14, 0.22);
+    background: rgba(251, 245, 221, 0.98);
     backdrop-filter: none;
   }
 
